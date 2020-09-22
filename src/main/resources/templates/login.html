@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Security Example </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div >
+<form th:action="@{/login}" method="post">
+    <div class="container mt-5">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <div><label> User Name : <input  type="text" name="username"  class="form-control" placeholder="User name" required="" autofocus=""/> </label></div>
+    <div><label> Password: <input  type="password" name="password" class="form-control" placeholder="Password" required=""/> </label></div>
+    <div><input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign In"/></div>
+    </div>
+</form>
+</body>
+</html>
